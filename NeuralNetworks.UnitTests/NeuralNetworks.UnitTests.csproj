@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1E8F6078-4EC1-4C1D-A4CA-C0C914F66863}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NeuralNetworks.UnitTests</RootNamespace>
+    <AssemblyName>NeuralNetworks.UnitTests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise />
+  </Choose>
+  <ItemGroup>
+    <Compile Include="HelpersTests\DescendedFloatComparerTests.cs" />
+    <Compile Include="HelpersTests\DynamicMemoryGuardTests.cs" />
+    <Compile Include="HelpersTests\PropertyHelperTest.cs" />
+    <Compile Include="SmartNeuralNetworkTests\SmartNeuralNetworkEqualsTests.cs" />
+    <Compile Include="Oldies\Layers\Concretes\MultiLayerPerceptronNetwork.cs" />
+    <Compile Include="Oldies\Layers\Enums\LearningMethod.cs" />
+    <Compile Include="Oldies\Layers\Interfaces\IMultiLayerPerceptronNetwork.cs" />
+    <Compile Include="Oldies\Learning\Concrete\LearningElement.cs" />
+    <Compile Include="Oldies\Learning\Concrete\LearningSet.cs" />
+    <Compile Include="Oldies\Learning\Interfaces\ILearningElement.cs" />
+    <Compile Include="Oldies\Learning\Interfaces\ILearningSet.cs" />
+    <Compile Include="MigrationTests.cs" />
+    <Compile Include="NeuralLayerTests\ICollectionImplementationTests\NeuralLayerAddTests.cs" />
+    <Compile Include="NeuralLayerTests\ICollectionImplementationTests\NeuralLayerClearTests.cs" />
+    <Compile Include="NeuralLayerTests\ICollectionImplementationTests\NeuralLayerContainsTests.cs" />
+    <Compile Include="NeuralLayerTests\ICollectionImplementationTests\NeuralLayerCopyToTests.cs" />
+    <Compile Include="NeuralLayerTests\ICollectionImplementationTests\NeuralLayerCountTests.cs" />
+    <Compile Include="NeuralLayerTests\ICollectionImplementationTests\NeuralLayerIsReadOnlyTests.cs" />
+    <Compile Include="NeuralLayerTests\ICollectionImplementationTests\NeuralLayerRemoveTests.cs" />
+    <Compile Include="NeuralLayerTests\IEnumerableImplementationTests\NeuralLayerIEnumerableTests.cs" />
+    <Compile Include="NeuralLayerTests\IListImplementationTests\NeuralLayerIndexOfTests.cs" />
+    <Compile Include="NeuralLayerTests\IListImplementationTests\NeuralLayerInsertTests.cs" />
+    <Compile Include="NeuralLayerTests\IListImplementationTests\NeuralLayerRemoveAtTests.cs" />
+    <Compile Include="NeuralLayerTests\NeuralLayerConstructorsTests.cs" />
+    <Compile Include="NeuralLayerTests\NeuralLayerEqualsTests.cs" />
+    <Compile Include="NeuralLayerTests\NeuralLayerGetNeuronTests.cs" />
+    <Compile Include="NeuralLayerTests\NeuralLayerIteratorTests.cs" />
+    <Compile Include="NeuralLayerTests\NeuralLayerResponseTests.cs" />
+    <Compile Include="Oldies\Neurons\Abstracts\NonlinearNeuron.cs" />
+    <Compile Include="Oldies\Neurons\Concretes\BasicNeuron.cs" />
+    <Compile Include="Oldies\Neurons\Concretes\SigmoidalNeuron.cs" />
+    <Compile Include="Oldies\Neurons\Concretes\SimpleMigrationNeuron.cs" />
+    <Compile Include="Oldies\Neurons\Concretes\TanhNeuron.cs" />
+    <Compile Include="Oldies\Neurons\Concretes\UnipolarNeuron.cs" />
+    <Compile Include="Oldies\Neurons\Enums\StrengthNorm.cs" />
+    <Compile Include="Oldies\Neurons\Interfaces\INeuron.cs" />
+    <Compile Include="Oldies\Neurons\Interfaces\INonlinearNeuron.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResponseStrategiesTests\BasicResponseStrategiesTests.cs" />
+    <Compile Include="ResponseStrategiesTests\SigmoidalResponseStrategiesTests.cs" />
+    <Compile Include="ResponseStrategiesTests\SimpleResponseStrategiesTests.cs" />
+    <Compile Include="ResponseStrategiesTests\TanhResponseStrategiesTests.cs" />
+    <Compile Include="SerializationTests\LayerSerializationTests.cs" />
+    <Compile Include="SerializationTests\NetworkSerializationTests.cs" />
+    <Compile Include="SerializationTests\NeuronSerializationTests.cs" />
+    <Compile Include="SerializationTests\ResponsesSerializationTests.cs" />
+    <Compile Include="SignalTests\SignalEqualsTests.cs" />
+    <Compile Include="SmartNeuralNetworkTests\ICollectionImplementationTests\SmartNeuralNetworkAddTests.cs" />
+    <Compile Include="SmartNeuralNetworkTests\ICollectionImplementationTests\SmartNeuralNetworkClearTests.cs" />
+    <Compile Include="SmartNeuralNetworkTests\ICollectionImplementationTests\SmartNeuralNetworkContainsTests.cs" />
+    <Compile Include="SmartNeuralNetworkTests\ICollectionImplementationTests\SmartNeuralNetworkCopyToTests.cs" />
+    <Compile Include="SmartNeuralNetworkTests\ICollectionImplementationTests\SmartNeuralNetworkCountTests.cs" />
+    <Compile Include="SmartNeuralNetworkTests\ICollectionImplementationTests\SmartNeuralNetworkIsReadOnlyTests.cs" />
+    <Compile Include="SmartNeuralNetworkTests\ICollectionImplementationTests\SmartNeuralNetworkIsRemoveTests.cs" />
+    <Compile Include="SmartNeuralNetworkTests\IEnumerableImplementationTests\SmartNeuralNetworkIEnumerableTests.cs" />
+    <Compile Include="SmartNeuralNetworkTests\IListImplementationTests\SmartNeuralNetworkIndexOfTests.cs" />
+    <Compile Include="SmartNeuralNetworkTests\IListImplementationTests\SmartNeuralNetworkInsertTests.cs" />
+    <Compile Include="SmartNeuralNetworkTests\IListImplementationTests\SmartNeuralNetworkRemoveAtTests.cs" />
+    <Compile Include="SmartNeuralNetworkTests\SmartNeuralNetworkConstructorsTests.cs" />
+    <Compile Include="SmartNeuralNetworkTests\SmartNeuralNetworkGetLayerTests.cs" />
+    <Compile Include="SmartNeuralNetworkTests\SmartNeuralNetworkIteratorTests.cs" />
+    <Compile Include="SmartNeuralNetworkTests\SmartNeuralNetworkResponseTests.cs" />
+    <Compile Include="SmartNeuralNetworkTests\SmartNeuralNetworkTests.cs" />
+    <Compile Include="SmartNeuronTests\SmartNeuronAppendBiasTests.cs" />
+    <Compile Include="SmartNeuronTests\SmartNeuronConstructorsTests.cs" />
+    <Compile Include="SmartNeuronTests\SmartNeuronEqualsTests.cs" />
+    <Compile Include="SmartNeuronTests\SmartNeuronMemoryTraceStrengthTests.cs" />
+    <Compile Include="SmartNeuronTests\SmartNeuronNormalizeTests.cs" />
+    <Compile Include="SmartNeuronTests\SmartNeuronOutputSignalTests.cs" />
+    <Compile Include="SmartNeuronTests\SmartNeuronResponseTests.cs" />
+    <Compile Include="SmartNeuronTests\SmartNeuronLerningWithTeacherTests.cs" />
+    <Compile Include="ResponseStrategiesTests\UnipolarResponseStrategiesTests.cs" />
+    <Compile Include="SmartNeuronTests\WeightsComparer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NeuralNetwork.Helpers\NeuralNetwork.Helpers.csproj">
+      <Project>{B1AFD6AF-1A42-434D-AF69-8DE90701E54F}</Project>
+      <Name>NeuralNetwork.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NeuralNetworks\NeuralNetworks.csproj">
+      <Project>{5f36a7e1-3e5e-4d77-9c20-92abe7065ddc}</Project>
+      <Name>NeuralNetworks</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
