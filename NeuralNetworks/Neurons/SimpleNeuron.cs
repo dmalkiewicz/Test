@@ -15,10 +15,12 @@ namespace NeuralNetworks.Neurons
         /// This class is a basic neuron with specified number of inputs.</summary>
         /// <param name="inputCount">The number of inputs for neuron.</param>
         /// <param name="responseStrategy">The neuron response strategy.</param>
+        /// <param name="responseStrategyFactory">The factory which will create response strategy.</param>
         /// <remarks>Note: The array of weights will have exactly the same size as the input count.</remarks>
-        public SimpleNeuron(int inputCount, IResponse responseStrategy)
+        public SimpleNeuron(int inputCount, IResponse responseStrategy, IResponseStrategyFactory responseStrategyFactory)
         {
-            this.ResponseStrategy = ResponseStrategyFactory.CreateResponseCopy(responseStrategy, this);
+            responseStrategyFactory = responseStrategyFactory ?? new ResponseStrategyFactory();
+            this.ResponseStrategy = responseStrategyFactory.CreateResponseCopy(responseStrategy, this);
             this.Weights = new double[inputCount];
             this.PreviousWeights = new double[this.Weights.Length];
             this.Identifier = Guid.NewGuid();

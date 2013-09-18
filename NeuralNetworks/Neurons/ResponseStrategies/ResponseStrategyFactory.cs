@@ -2,9 +2,9 @@
 
 namespace NeuralNetworks.Neurons.ResponseStrategies
 {
-    public class ResponseStrategyFactory
+    public class ResponseStrategyFactory : IResponseStrategyFactory
     {
-        public static IResponse CreateResponseCopy(IResponse originalResponseStrategy, INeuron neuron)
+        public IResponse CreateResponseCopy(IResponse originalResponseStrategy, INeuron neuron)
         {
             var response = (IResponse)Activator.CreateInstance(originalResponseStrategy.GetType());
             response.SetNeuron(neuron);

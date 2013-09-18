@@ -25,7 +25,7 @@ namespace NeuralNetworks.UnitTests.ResponseStrategiesTests
         public void SigmoidalResponseWithDifferentInputSignalCountAndNullInputSignalsTest(double weight0, double weight1, double signal0, double signal1)
         {
             var response = new SigmoidalResponse();
-            var originalNeuron = new SimpleNeuron(NeuronInputCount, response);
+            var originalNeuron = new SimpleNeuron(NeuronInputCount, response, null);
             var beta = response.Beta;
             response.Beta = beta;
 
@@ -58,7 +58,7 @@ namespace NeuralNetworks.UnitTests.ResponseStrategiesTests
         public void SigmoidalResponseUsingBasicWithDifferentInputSignalCountAndNullInputSignalsTest(double weight0, double weight1, double signal0, double signal1)
         {
             var response = new SigmoidalResponse();
-            var originalNeuron = new SimpleNeuron(NeuronInputCount, new SimpleResponse());
+            var originalNeuron = new SimpleNeuron(NeuronInputCount, new SimpleResponse(), null);
             var beta = response.Beta;
             response.Beta = beta;
 

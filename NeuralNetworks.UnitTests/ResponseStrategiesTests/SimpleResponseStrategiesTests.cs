@@ -25,7 +25,7 @@ namespace NeuralNetworks.UnitTests.ResponseStrategiesTests
         public void SimpleResponseWithDifferentInputSignalCountAndNullInputSignalsTest(double weight0, double weight1, double signal0, double signal1)
         {
             var response = new SimpleResponse();
-            var originalNeuron = new SimpleNeuron(NeuronInputCount, response);
+            var originalNeuron = new SimpleNeuron(NeuronInputCount, response, null);
 
             var weights = new[] { weight0, weight1 };
             var inputSignals = new[]

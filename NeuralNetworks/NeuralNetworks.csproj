@@ -93,6 +93,7 @@
     <Compile Include="NeuralNetwork\SmartNeuralNetwork.cs" />
     <Compile Include="Neurons\Enums\StrengthNorm.cs" />
     <Compile Include="Neurons\INeuron.cs" />
+    <Compile Include="Neurons\ResponseStrategies\IResponseStrategyFactory.cs" />
     <Compile Include="Neurons\SmartNeuron\SerializableSmartNeuron.cs" />
     <Compile Include="Neurons\SmartNeuron\ISmartNeuron.cs" />
     <Compile Include="Neurons\ResponseStrategies\ResponseStrategyFactory.cs" />

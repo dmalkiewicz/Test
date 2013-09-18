@@ -32,7 +32,7 @@ namespace NeuralNetworks.UnitTests.SmartNeuronTests
             };
 
             var response = new SimpleResponse();
-            var originalNeuron = new SimpleNeuron(NeuronInputCount, response);
+            var originalNeuron = new SimpleNeuron(NeuronInputCount, response, null);
 
             #region Prepare neurons
 
@@ -71,7 +71,7 @@ namespace NeuralNetworks.UnitTests.SmartNeuronTests
             };
 
             var response = new SigmoidalResponse();
-            var originalNeuron = new SimpleNeuron(NeuronInputCount, response);
+            var originalNeuron = new SimpleNeuron(NeuronInputCount, response, null);
 
             #region Prepare neurons
 
@@ -110,7 +110,7 @@ namespace NeuralNetworks.UnitTests.SmartNeuronTests
             };
 
             var response = new TanhResponse();
-            var originalNeuron = new SimpleNeuron(NeuronInputCount, response);
+            var originalNeuron = new SimpleNeuron(NeuronInputCount, response, null);
 
             #region Prepare neurons
 
@@ -149,7 +149,7 @@ namespace NeuralNetworks.UnitTests.SmartNeuronTests
             };
 
             var response = new UnipolarResponse();
-            var originalNeuron = new SimpleNeuron(NeuronInputCount, response);
+            var originalNeuron = new SimpleNeuron(NeuronInputCount, response, null);
 
             #region Prepare neurons
 

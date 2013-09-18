@@ -34,7 +34,7 @@ namespace NeuralNetworks.UnitTests
             };
 
             var originalResult = expectedResult;
-            var newNeuron = new SimpleNeuron(2, new SimpleResponse());
+            var newNeuron = new SimpleNeuron(2, new SimpleResponse(), null);
             newNeuron.SetWeights(new[]
                                 {
                                     weight0, weight1
@@ -68,7 +68,7 @@ namespace NeuralNetworks.UnitTests
             };
 
             var originalResult = expectedResult;
-            var newNeuron = new SimpleNeuron(2, new SigmoidalResponse());
+            var newNeuron = new SimpleNeuron(2, new SigmoidalResponse(), null);
             newNeuron.SetWeights(new[]
                                 {
                                     weight0, weight1
@@ -101,7 +101,7 @@ namespace NeuralNetworks.UnitTests
                 signal1
             };
 
-            var newNeuron = new SimpleNeuron(2, new TanhResponse());
+            var newNeuron = new SimpleNeuron(2, new TanhResponse(), null);
             newNeuron.SetWeights(new[]
                                 {
                                     weight0, weight1
@@ -134,7 +134,7 @@ namespace NeuralNetworks.UnitTests
                 signal1
             };
 
-            var newNeuron = new SimpleNeuron(2, new UnipolarResponse());
+            var newNeuron = new SimpleNeuron(2, new UnipolarResponse(), null);
             newNeuron.SetWeights(new[]
                                 {
                                     weight0, weight1
@@ -165,7 +165,7 @@ namespace NeuralNetworks.UnitTests
         [TestCase(double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity)]
         public void EuclideanMemoryTraceStrengthTest(double weight0, double weight1, double expectedResult)
         {
-            var newNeuron = new SimpleNeuron(2, new SimpleResponse());
+            var newNeuron = new SimpleNeuron(2, new SimpleResponse(), null);
             newNeuron.SetWeights(new[]
                                 {
                                     weight0, weight1
@@ -194,7 +194,7 @@ namespace NeuralNetworks.UnitTests
         [TestCase(double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity)]
         public void ManhattanMemoryTraceStrengthTest(double weight0, double weight1, double expectedResult)
         {
-            var newNeuron = new SimpleNeuron(2, new SimpleResponse());
+            var newNeuron = new SimpleNeuron(2, new SimpleResponse(), null);
             newNeuron.SetWeights(new[]
                                 {
                                     weight0, weight1

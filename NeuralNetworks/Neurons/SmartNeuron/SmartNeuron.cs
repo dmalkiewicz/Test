@@ -32,8 +32,9 @@ namespace NeuralNetworks.Neurons.SmartNeuron
         /// which can be used in network which will delete or add neurons.</summary>
         /// <param name="inputCount">The number of inputs for neuron.</param>
         /// <param name="responseStrategy">The neuron response strategy.</param>
+        /// <param name="responseStrategyFactory">The factory which will create response strategy.</param>
         /// <remarks>Note: The array of weights will have exactly the same size as the input count.</remarks>
-        public SmartNeuron(uint inputCount, IResponse responseStrategy = null)
+        public SmartNeuron(uint inputCount, IResponse responseStrategy = null, IResponseStrategyFactory responseStrategyFactory = null)
         {
             this.InputSignals = new List<IReadonlySignal>();
             for (var i = 0; i < inputCount; i++)
@@ -41,17 +42,17 @@ namespace NeuralNetworks.Neurons.SmartNeuron
                 this.InputSignals.Add(new Signal { Identifier = Guid.NewGuid() });
             }
 
-            this.InitializeNeuron(ref responseStrategy);
+            this.InitializeNeuron(ref responseStrategy, responseStrategyFactory);
             this.InputSignalsWithWeights = CreateInputSignalsWithWeights(this.InputSignals, CreateRandomWeights(inputCount));
             this.PreviousWeights = new double[this.Weights.Length];
         }
 
-        public SmartNeuron(IEnumerable<IReadonlySignal> inputSignals, IResponse responseStrategy = null)
+        public SmartNeuron(IEnumerable<IReadonlySignal> inputSignals, IResponse responseStrategy = null, IResponseStrategyFactory responseStrategyFactory = null)
         {
             var readonlySignals = inputSignals as IList<IReadonlySignal> ?? inputSignals.ToList();
             ValidateNeededObjects(readonlySignals);
 
-            this.InitializeNeuron(ref responseStrategy);
+            this.InitializeNeuron(ref responseStrategy, responseStrategyFactory);
             this.InputSignals = readonlySignals.ToList();
             this.InputSignalsWithWeights = CreateInputSignalsWithWeights(
                 this.InputSignals,
@@ -59,7 +60,7 @@ namespace NeuralNetworks.Neurons.SmartNeuron
             this.PreviousWeights = new double[this.Weights.Length];
         }
 
-        public SmartNeuron(Guid neuronGuid, double[] weights, IEnumerable<IReadonlySignal> inputSignals, IResponse responseStrategy = null)
+        public SmartNeuron(Guid neuronGuid, double[] weights, IEnumerable<IReadonlySignal> inputSignals, IResponse responseStrategy = null, IResponseStrategyFactory responseStrategyFactory = null)
         {
             var readonlySignals = inputSignals as IList<IReadonlySignal> ?? inputSignals.ToList();
             ValidateNeededObjects(readonlySignals);
@@ -69,7 +70,7 @@ namespace NeuralNetworks.Neurons.SmartNeuron
             }
 
             this.InputSignals = readonlySignals.ToList();
-            this.InitializeNeuron(ref responseStrategy, neuronGuid);
+            this.InitializeNeuron(ref responseStrategy, responseStrategyFactory, neuronGuid);
             this.InputSignalsWithWeights = CreateInputSignalsWithWeights(this.InputSignals, weights);
         }
 
@@ -142,14 +143,15 @@ namespace NeuralNetworks.Neurons.SmartNeuron
 
         #endregion
 
-        private void InitializeNeuron(ref IResponse responseStrategy, Guid neuronIdentifier = default(Guid))
+        private void InitializeNeuron(ref IResponse responseStrategy, IResponseStrategyFactory responseStrategyFactory = null, Guid neuronIdentifier = default(Guid))
         {
             if (responseStrategy == null)
             {
                 responseStrategy = new SimpleResponse();
             }
 
-            this.ResponseStrategy = ResponseStrategyFactory.CreateResponseCopy(responseStrategy, this);
+            responseStrategyFactory = responseStrategyFactory ?? new ResponseStrategyFactory();
+            this.ResponseStrategy = responseStrategyFactory.CreateResponseCopy(responseStrategy, this);
             this.Identifier = neuronIdentifier != default(Guid) ? neuronIdentifier : SequentialGuid.NewSequentialGuid();
         }
     }

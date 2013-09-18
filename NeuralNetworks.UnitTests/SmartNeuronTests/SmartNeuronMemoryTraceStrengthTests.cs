@@ -32,7 +32,7 @@ namespace NeuralNetworks.UnitTests.SmartNeuronTests
         public void EuclideanMemoryTraceStrengthTest(double weight0, double weight1)
         {
             var response = new SimpleResponse();
-            var originalNeuron = new SimpleNeuron(NeuronInputCount, response);
+            var originalNeuron = new SimpleNeuron(NeuronInputCount, response, null);
 
             #region Prepare neurons
 
@@ -75,7 +75,7 @@ namespace NeuralNetworks.UnitTests.SmartNeuronTests
         public void ManhattanMemoryTraceStrengthTest(double weight0, double weight1)
         {
             var response = new SimpleResponse();
-            var originalNeuron = new SimpleNeuron(NeuronInputCount, response);
+            var originalNeuron = new SimpleNeuron(NeuronInputCount, response, null);
 
             #region Prepare neurons
 

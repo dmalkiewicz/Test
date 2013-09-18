@@ -200,7 +200,7 @@ namespace NeuralNetworks.UnitTests.SmartNeuronTests
             var weights = new[] { weight0, weight1 };
 
             var response = new TanhResponse();
-            originalNeuron = new SimpleNeuron(NeuronInputCount, response);
+            originalNeuron = new SimpleNeuron(NeuronInputCount, response, null);
 
             // Prepare neurons
             originalNeuron.SetWeights(weights);
