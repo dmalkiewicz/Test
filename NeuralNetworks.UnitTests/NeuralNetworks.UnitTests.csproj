@@ -154,7 +154,6 @@
     <Compile Include="SmartNeuralNetworkTests\SmartNeuralNetworkConstructorsTests.cs" />
     <Compile Include="SmartNeuralNetworkTests\SmartNeuralNetworkGetLayerTests.cs" />
     <Compile Include="SmartNeuralNetworkTests\SmartNeuralNetworkIteratorTests.cs" />
-    <Compile Include="SmartNeuralNetworkTests\SmartNeuralNetworkResponseTests.cs" />
     <Compile Include="SmartNeuralNetworkTests\SmartNeuralNetworkTests.cs" />
     <Compile Include="SmartNeuronTests\SmartNeuronAppendBiasTests.cs" />
     <Compile Include="SmartNeuronTests\SmartNeuronConstructorsTests.cs" />
